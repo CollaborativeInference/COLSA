@@ -19,12 +19,14 @@ include:
 You can install the development version of COLSA like so:
 
 ``` r
-pak::pak("signorinoy/COLSA")
+
+pak::pak("ziyangg98/COLSA")
 ```
 
 ## Example
 
 ``` r
+
 library(COLSA)
 ```
 
@@ -42,7 +44,9 @@ Censoring times followed an exponential distribution with rate parameter
 3. The observed event times were subject to right censoring. The true
 regression coefficients were set as
 
-$${\mathbf{β}} = (0.15, - 0.15,0.3,0.3,0.3,0.3)^{\top}$$
+``` math
+  \boldsymbol{\beta} = (0.15, -0.15, 0.3, 0.3, 0.3, 0.3)^{\top}
+```
 
 A total of six datasets were generated: the first three containing 1,500
 observations each, and the remaining three containing 500 observations
@@ -50,6 +54,7 @@ each. The complete dataset was randomly partitioned into these six
 groups.
 
 ``` r
+
 head(sim)
 #>   id       time status        x1       x2 x31 x42 x43 x44 group
 #> 1  1 0.09887412      0 10.958910 5.938538   1   0   0   1     1
@@ -69,15 +74,16 @@ The COLSA procedure involves:
     using the selected basis functions.
 3.  **Sequential Updating:** For each subsequent batch: (a) update model
     parameters with the new data; (b) adjust the number of basis
-    functions according to the rate $O\left( n^{- 1/5} \right)$, where
-    $n$ is the cumulative sample size; (c) pre-estimate the Hessian of
-    the baseline hazard to mitigate bias in its estimation.
+    functions according to the rate $`O(n^{-1/5})`$, where $`n`$ is the
+    cumulative sample size; (c) pre-estimate the Hessian of the baseline
+    hazard to mitigate bias in its estimation.
 
 This procedure enables scalable and communication-efficient survival
 analysis under distributed settings while preserving statistical
 efficiency.
 
 ``` r
+
 formula <- Surv(time, status) ~ x1 + x2 + x31 + x42 + x43 + x44
 boundary <- c(0, max(sim$time))
 
@@ -101,6 +107,7 @@ batches. Upon incorporating data from the 6th site, we obtain the final
 model fit. The summary of the fitted COLSA model is shown below:
 
 ``` r
+
 summary(fit)
 #> Call:
 #> update.colsa(object = fit, newdata = df_sub, alpha = alpha_best)
@@ -131,6 +138,7 @@ estimated baseline cumulative hazard function and compare it to the true
 cumulative hazard function used in the data-generating process.
 
 ``` r
+
 df <- basehaz(fit)
 df$true <- -log(0.5 * exp(-10 * df$time^3) + 0.5 * exp(-20 * df$time^5))
 lower_col <- grep("lower", names(df), value = TRUE)[1]
