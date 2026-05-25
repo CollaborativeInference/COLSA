@@ -33,7 +33,7 @@ include:
 You can install the development version of COLSA like so:
 
 ``` r
-pak::pak("signorinoy/COLSA")
+pak::pak("ziyangg98/COLSA")
 ```
 
 ## Example
