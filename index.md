@@ -20,14 +20,14 @@ You can install the development version of COLSA like so:
 
 ``` r
 
-pak::pak("ziyangg98/COLSA")
+pak::pak("CollaborativeInference/OnlineCOLSA")
 ```
 
 ## Example
 
 ``` r
 
-library(COLSA)
+library(OnlineCOLSA)
 ```
 
 In the simulation study, we considered two continuous and two

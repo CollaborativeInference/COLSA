@@ -62,13 +62,13 @@
 </h2>
 <p>You can install the development version of COLSA like so:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"ziyangg98/COLSA"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"CollaborativeInference/OnlineCOLSA"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://gongziyang.com/COLSA/">COLSA</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">OnlineCOLSA</span><span class="op">)</span></span></code></pre></div>
 <p>In the simulation study, we considered two continuous and two categorical covariates. The continuous covariates were independently generated from a bivariate normal distribution. The first categorical covariate was simulated from a Bernoulli distribution, while the second categorical covariate, comprising four levels, was drawn from a multinomial distribution whose probability mass function depended on the levels of the first categorical variable.</p>
 <p>Event times were generated from a mixture of Weibull distributions, with shape parameters 3 and 5 and scale parameters 10 and 20, respectively. Censoring times followed an exponential distribution with rate parameter 3. The observed event times were subject to right censoring. The true regression coefficients were set as</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝛃</mi><mo>=</mo><mo stretchy="false" form="prefix">(</mo><mn>0.15</mn><mo>,</mo><mi>−</mi><mn>0.15</mn><mo>,</mo><mn>0.3</mn><mo>,</mo><mn>0.3</mn><mo>,</mo><mn>0.3</mn><mo>,</mo><mn>0.3</mn><msup><mo stretchy="false" form="postfix">)</mo><mi>⊤</mi></msup></mrow><annotation encoding="application/x-tex">  \boldsymbol{\beta} = (0.15, -0.15, 0.3, 0.3, 0.3, 0.3)^{\top}</annotation></semantics></math></p>
